@@ -39,9 +39,36 @@ $.ajax({
   url: queryURL,
   method: "GET"
 }).then(function (response) {
-  var description = (response.data[1].description);
-  parkDescription = `<div class="park-description">${description}</div>`;
-  $content.prepend(parkDescription)
+  console.log(response);
+  response.data.forEach(element => {
+var description = element.description;
+var designation = element.designation;
+var directionsInfo = element.directionsInfo;
+var directionsUrl = element.directionsUrl;
+var fullName = element.fullName;
+var id = element.id;
+var latLong = element.latLong;
+var name = element.name;
+var parkCode = element.parkCode;
+var states = element.states;
+var url = element.url;
+var weatherInfo = element.weatherInfo;
+var parkDescription = `
+<div class="park-description">Park description: ${description}</div>
+<div class="park-designation">Park designation: ${designation}</div>
+<div class="park-directionsInfo">Park directionsInfo: ${directionsInfo}</div>
+<div class="park-directionsUrl">Park directionsUrl: ${directionsUrl}</div>
+<div class="park-fullName">Park fullName: ${fullName}</div>
+<div class="park-id">Park id: ${id}</div>
+<div class="park-latLong">Park latLong: ${latLong}</div>
+<div class="park-name">Park name: ${name}</div>
+<div class="park-parkCode">Park parkCode: ${parkCode}</div>
+<div class="park-states">Park states: ${states}</div>
+<div class="park-url">Park url: ${url}</div>
+<div class="park-weatherInfo">Park weatherInfo: ${weatherInfo}</div>
+`;
+$content.prepend(parkDescription)
+  });
   });
 var currentWeather = '';
 var openWeatherKey = '22de199405e9bc855be8a60cd5dbae04';
