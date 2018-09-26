@@ -2,32 +2,131 @@
 <html lang="en">
 
 <head>
-    <title>Project 1</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>National Parks Info Search</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
-        crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <h1>Project 1</h1>
+  <section class="container">
+    <h1 id="mainHeader">Project 1</h1>
 
-    <div id="content"></div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
-        crossorigin="anonymous"></script>
-    <!-- firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
-    <script src='app.js'></script>
+    <!--SEARCH BAR-->
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">National Park</label>
+          <input type="text" class="form-control" id="inputEmail4" placeholder="Yellowstone">
+        </div>
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group col-md-6">
+          <label for="inputCity">City</label>
+          <input type="text" class="form-control" id="inputCity">
+        </div>
+
+        <!--STATE INPUT. USE JS TO APPEND ALL STATES ABBREV-->
+        <div class="form-group col-md-4">
+          <label for="inputState">State</label>
+          <select id="inputState" class="form-control">
+            <option selected>Choose...</option>
+            <option>AL</option>
+            <option>AK</option>
+            <option>AZ</option>
+            <option>AR</option>
+            <option>CA</option>
+            <option>CO</option>
+            <option>CT</option>
+            <option>DE</option>
+            <option>DC</option>
+            <option>FL</option>
+            <option>GA</option>
+            <option>HI</option>
+            <option>ID</option>
+            <option>IL</option>
+            <option>IN</option>
+            <option>IA</option>
+            <option>KS</option>
+            <option>KY</option>
+            <option>LA</option>
+            <option>ME</option>
+            <option>MD</option>
+            <option>MA</option>
+            <option>MI</option>
+            <option>MN</option>
+            <option>MS</option>
+            <option>MO</option>
+            <option>MT</option>
+            <option>NE</option>
+            <option>NV</option>
+            <option>NH</option>
+            <option>NJ</option>
+            <option>NM</option>
+            <option>NY</option>
+            <option>NC</option>
+            <option>ND</option>
+            <option>OH</option>
+            <option>OK</option>
+            <option>OR</option>
+            <option>PA</option>
+            <option>RI</option>
+            <option>SC</option>
+            <option>SD</option>
+            <option>TN</option>
+            <option>TX</option>
+            <option>UT</option>
+            <option>VT</option>
+            <option>VA</option>
+            <option>WA</option>
+            <option>WV</option>
+            <option>WI</option>
+            <option>WY</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+
+    <!--CONTENT-->
+    <div class="row">
+      <div id="content"></div>
+    </div>
+
+
+
+
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+    crossorigin="anonymous"></script>
+  <!-- firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+  <script src='app.js'></script>
 
 </body>
 
