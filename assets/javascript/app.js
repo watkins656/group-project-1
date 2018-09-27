@@ -12,11 +12,12 @@ var config = {
 firebase.initializeApp(config);
 
 // keys
-var parkDescription = '';
 var NPSkey = '7MdKWFV9urqKPc9MCwPZQ0QNbopENRTWAYjJ7aKH';
-function buildNPSURL() {
+var NPScategories = ['alerts','articles','campgrounds','events','lessonplans','newsreleases','parks','people','places','visitorscenters']
+function buildNPSURL(category) {
   // queryURL is the url we'll use to query the API
-  var queryURL = "https://api.nps.gov/api/v1/parks?";
+  var queryURL = "https://api.nps.gov/api/v1/";
+  queryURL+=category +'?';
   // https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=tjXP6z2au64OS8HUdvnnP2GgHf1t3JQeuDDTsxoo
   // Begin building an object to contain our API call's query parameters
   // Set the API key
@@ -27,13 +28,15 @@ function buildNPSURL() {
   // .val()
   // .trim();
   queryParams.q = 'yellowstone'
-
   queryParams.limit = 10;
   // Logging the URL so we have access to it for troubleshooting
   console.log("---------------\nURL: " + queryURL + "\n---------------");
   console.log(queryURL + $.param(queryParams));
   return queryURL + $.param(queryParams);
 }
+
+NPScategories.forEach(element => {
+
 var queryURL = buildNPSURL();
 $.ajax({
   url: queryURL,
@@ -107,4 +110,15 @@ $.ajax({
   // $('#ys-sample').text(description)
   $content.append(currentWeather);
 });
+
+
+
+
+
+
+
+
+
+
+
 
