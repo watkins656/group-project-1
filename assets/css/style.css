@@ -1,0 +1,63 @@
+body {
+    background-image: url("../images/background.gif");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: black;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+  }
+  
+  #main-header {
+    font-size: 60px;
+    color: darkgreen;
+    font-family: Copperplate, "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-weight: bold;
+    padding-top: 7%;
+  }
+  
+  #sub-header {
+    font-size: 24px;
+    color: darkgreen;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+  }
+  
+  #input {
+    padding-top: 30%;
+    padding-left: 37%;
+    padding-right: 37%;
+    margin-bottom: 10px;
+    vertical-align: bottom;
+    text-shadow:
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+	  1px 1px 0 black;
+  }
+
+  #sub-input {
+    float: left;
+    width: 33.33%;
+    padding: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    vertical-align: bottom;
+    text-shadow:
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+	  1px 1px 0 black;
+  }
+  
+  #search-name {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  #search-choice {
+    color: darkgreen;
+    font-weight: bold;
+  }
+  
