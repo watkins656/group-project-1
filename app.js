@@ -34,6 +34,7 @@ function buildNPSURL() {
   console.log(queryURL + $.param(queryParams));
   return queryURL + $.param(queryParams);
 }
+
 var queryURL = buildNPSURL();
 $.ajax({
   url: queryURL,
@@ -55,16 +56,21 @@ var url = element.url;
 var weatherInfo = element.weatherInfo;
 var parkDescription = `
 <div class="park-description">Park description: ${description}</div>
-<div class="park-designation">Park designation: ${designation}</div>
+<br>
 <div class="park-directionsInfo">Park directionsInfo: ${directionsInfo}</div>
+<br>
 <div class="park-directionsUrl">Park directionsUrl: ${directionsUrl}</div>
+<br>
 <div class="park-fullName">Park fullName: ${fullName}</div>
-<div class="park-id">Park id: ${id}</div>
+<br>
 <div class="park-latLong">Park latLong: ${latLong}</div>
+<br>
 <div class="park-name">Park name: ${name}</div>
-<div class="park-parkCode">Park parkCode: ${parkCode}</div>
+<br>
 <div class="park-states">Park states: ${states}</div>
+<br>
 <div class="park-url">Park url: ${url}</div>
+<br>
 <div class="park-weatherInfo">Park weatherInfo: ${weatherInfo}</div>
 `;
 $content.prepend(parkDescription)
