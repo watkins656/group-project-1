@@ -34,6 +34,7 @@ function buildNPSURL() {
   console.log(queryURL + $.param(queryParams));
   return queryURL + $.param(queryParams);
 }
+
 var queryURL = buildNPSURL();
 $.ajax({
   url: queryURL,
@@ -107,4 +108,3 @@ $.ajax({
   // $('#ys-sample').text(description)
   $content.append(currentWeather);
 });
-
