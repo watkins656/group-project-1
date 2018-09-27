@@ -1,3 +1,4 @@
+var $content = $('#content')
 var currentWeather = '';
 var openWeatherKey = '22de199405e9bc855be8a60cd5dbae04';
 function buildWeatherURL() {
