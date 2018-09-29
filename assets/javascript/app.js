@@ -397,11 +397,9 @@ var NPSContentBuilderMethods = {
   </div>
     `
     $content.prepend(card);
-    // console.log(element);  
 
   },
   newsreleases: function (element, cat) {
-    console.log(element);
     var abstract = element.abstract;
     var id = element.id;
     var parkCode = element.parkCode;
@@ -484,7 +482,7 @@ var NPSContentBuilderMethods = {
     $content.prepend(card);
   },
   places: function (element, cat) {
-    var listingDescription = element.contacts.listingDescription;
+    var listingDescription = element.listingDescription;
     var listingImageCredit = element.listingImage.credit;
     var listingImageAltText = element.listingImage.altText;
     var listingImageTitle = element.listingImage.title;
@@ -603,7 +601,7 @@ function getData(category) {
   var queryParams = {
     "api_key": NPSkey,
     "q": park,
-    "limit": 1
+    "limit": 0
   };
   queryURL += $.param(queryParams);
   $.ajax({
@@ -616,7 +614,6 @@ function getData(category) {
     response.data.forEach(item => {
       globalCounter++;
       NPSContentBuilderMethods[category](item, category);
-      $content.prepend(content)
     });
   });
 }
@@ -629,51 +626,103 @@ function getData(category) {
 
 var currentWeather = '';
 var openWeatherKey = '22de199405e9bc855be8a60cd5dbae04';
-function buildWeatherURL() {
-  // queryURL is the url we'll use to query the API
-  var queryURL = 'https://api.openweathermap.org/data/2.5/weather?';
-  // https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=tjXP6z2au64OS8HUdvnnP2GgHf1t3JQeuDDTsxoo
-  // Begin building an object to contain our API call's query parameters
-  // Set the API key
-  var queryParams = { "appid": openWeatherKey };
+var lat=0;
+var lon=0;
+// API categories
+var openWeatherCategories = [
+  'weather',
+  'forecast'
+]
 
-  // Grab text the user typed into the search input, add to the queryParams object
-  // queryParams.q = $("#search-term")
-  // .val()
-  // .trim();
-  queryParams.q = 'yellowstone,us'
-
-  return queryURL + $.param(queryParams);
-}
-queryURL = buildWeatherURL();
-$.ajax({
-  url: queryURL,
-  method: "GET"
-}).then(function (response) {
-  globalCounter++;
-  var weather = (response.weather[0].description);
-  var card = `
+// Each API category returns different data structures, so create a unique method for each category
+var openWeatherContentBuilderMethods = {
+  // each following method name matches the API call category exactly
+  weather: function (element) {
+    var temperatureK = (element.main.temp);
+    var temperature = Math.floor(temperatureK * 9/5 -459.67);
+    var card = `
   <div class="card">
       <div class="card-header" role="tab" id="section1HeaderId">
           <h5 class="mb-0">
               <a data-toggle="collapse" data-parent="#design" href="#card${globalCounter}" aria-expanded="false" aria-controls="card${globalCounter}" class="collapsed">
-                Current Weather
+                Current temperature
               </a>
           </h5>
       </div>
       <div id="card${globalCounter}" class="in collapse" role="tabpanel" aria-labelledby="section1HeaderId" style="">
       <div class="card-body">
-        <div class='current-weather'>Current Weather: ${weather}</div>
+        <div class='current-temperature'>Current temperature : ${temperature}</div>
           <br>
         </div>
       </div>
   </div>
   `
-
-  // var description = (response.data[1].description);
-  // $('#ys-sample').text(description)
   $content.append(card);
+  console.log("content appended");
+  },
+  // TODO: Forecast is a copy of weather, change forecast
+  forecast: function (element) {
+    var forecast ='';
+    element.list.forEach(element => {
+      console.log(element);
+      var convertedDate = moment.unix(element.dt);
+      var time = moment(convertedDate).format("MM/DD/YY hh:mm");
+      var tempK = element.main.temp;
+      var temp = Math.floor(tempK * 9/5 -459.67);
+      forecast+=time + '  -  Temperature: '+temp+' Fahrenheit<br>' ;
+    });
+    var card = `
+  <div class="card">
+      <div class="card-header" role="tab" id="section1HeaderId">
+          <h5 class="mb-0">
+              <a data-toggle="collapse" data-parent="#design" href="#card${globalCounter}" aria-expanded="false" aria-controls="card${globalCounter}" class="collapsed">
+                5-day Forecast
+              </a>
+          </h5>
+      </div>
+      <div id="card${globalCounter}" class="in collapse" role="tabpanel" aria-labelledby="section1HeaderId" style="">
+      <div class="card-body">
+        <div class='current-weather'>Forecast: ${forecast}</div>
+          <br>
+        </div>
+      </div>
+  </div>
+  `
+  $content.append(card);
+  }
+}
+
+openWeatherCategories.forEach(category => {
+
+  // Assure we are keeping <div>'s unique by incrementing globalCounter each iteration
+  globalCounter++;
+
+  // call getData function to get respective data
+  getWeatherData(category);
 });
+
+
+
+
+function getWeatherData(category) {
+  var queryURL = `https://api.openweathermap.org/data/2.5/${category}?`;
+
+  // TODO: decide how to handle the limit 
+  // REMEMBER: the API returns 1 more than the limit e.g. 1 will return [0,1]
+  var queryParams = {
+    "appid": openWeatherKey,
+    "lat": lat,
+    "lon": lon
+    };
+  queryURL += $.param(queryParams);
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function (response) {
+      globalCounter++;
+      openWeatherContentBuilderMethods[category](response, category);
+  });
+}
 
 //===============================================================
 //FIREBASE
