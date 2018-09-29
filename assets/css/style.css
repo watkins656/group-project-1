@@ -1,5 +1,4 @@
 body {
-    background-image: url("../images/background.gif");
     background-repeat: no-repeat;
     background-size: 100%;
     background-color: black;
@@ -7,57 +6,124 @@ body {
     background-attachment: fixed;
     font-family: Avenir, Arial, Helvetica, sans-serif;
   }
-  
-  #main-header {
-    font-size: 60px;
-    color: darkgreen;
-    font-family: Copperplate, "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    font-weight: bold;
-    padding-top: 7%;
-  }
-  
-  #sub-header {
-    font-size: 24px;
-    color: darkgreen;
-    font-family: Avenir, Arial, Helvetica, sans-serif;
-    font-weight: bold;
-  }
-  
-  #input {
-    padding-top: 30%;
-    padding-left: 37%;
-    padding-right: 37%;
-    margin-bottom: 10px;
-    vertical-align: bottom;
-    text-shadow:
-    -1px -1px 0 black,
-    1px -1px 0 black,
-    -1px 1px 0 black,
-	  1px 1px 0 black;
-  }
 
-  #sub-input {
-    float: left;
-    width: 33.33%;
-    padding: 20px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    vertical-align: bottom;
-    text-shadow:
-    -1px -1px 0 black,
-    1px -1px 0 black,
-    -1px 1px 0 black,
-	  1px 1px 0 black;
-  }
+#header {
+  color: darkgreen;
+  padding-top: 5%;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
   
-  #search-name {
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-  }
-  
-  #search-choice {
-    color: darkgreen;
-    font-weight: bold;
-  }
-  
+h1 {
+  font-size: 60px;
+  font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+}
+
+h3 {
+  font-size: 24px;
+  font-family: Avenir, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+#search-1 {
+  padding-top: 34%;
+  padding-left: 25%;
+  padding-right: 25%;
+  margin: 0px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  text-shadow:
+  -2px -2px 0 black,
+  2px -2px 0 black,
+  -2px 2px 0 black,
+  2px 2px 0 black;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#search-2 {
+  margin-left: 25%;
+  width: 50%;
+  color: navy;
+  font-size: 20px;
+}
+
+#search-3 {
+  margin-left: 44%;
+  width: 150px;
+  color: navy;
+  background-color: white;
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: 3px;
+  height: 40px;
+  padding: 2px;
+}
+
+#park-header {
+  font-size: 60px;
+  color:  white;
+  text-shadow:
+  -2px -2px 0 darkgreen,
+  2px -2px 0 darkgreen,
+  -2px 2px 0 darkgreen,
+  2px 2px 0 darkgreen;
+  font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+  padding-top: 5%;
+}
+
+#park-options {
+  padding-top: 400px;
+  margin-left: 44%;
+  width: 250px;
+  color: darkgreen;
+  background-color: black;
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: 3px;
+  height: 40px;
+  padding: 2px;
+}
+
+.footer-parks {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 10px;
+  font-size: 14px;
+  font-family: Avenir, Arial, Helvetica, sans-serif;
+  color: white;
+  background-color: navy;
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: white;
+  background-color: darkgreen;
+}
