@@ -82,7 +82,6 @@ $('#search-3').on('click', function (event) {
   var parkChosen = $('#search-2').val();
   localStorage.clear();
   localStorage.setItem('park-name', parkChosen);
-  var parkURL = 'assets/parks/' + parksNameURL[`${parkChosen}`];
   window.location.assign('park.html')
 })
 
@@ -579,6 +578,13 @@ var NPSContentBuilderMethods = {
 // Use localStorage to see which park we chose on the home-page
 var park = localStorage.getItem('park-name');
 $('#park-header').text(park)
+$('#park-title').text(park)
+
+parkURL = parksNameURL[park];
+var backgroundImageURL = 'assets/images/' + parkURL.substring(0,parkURL.length-5)+'.jpg';
+console.log(backgroundImageURL);
+$('#park-body').attr('background', backgroundImageURL)
+
 // Nested 'forEach' calls will call the API for each category, 
 // then run the respective Method for each set of data returned within each category
 NPSCategories.forEach(category => {
