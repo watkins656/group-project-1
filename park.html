@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Park-Name - National Parks Travel Guide</title>
+    <title id="park-title">Park-Name - National Parks Travel Guide</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,14 +15,15 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body background="assets/images/parks/park-name.jpg">
+<body id='park-body' background="assets/images/park-name.jpg">
 
   <div class="container">
     <h2 class="text-center" id="park-header"><strong>PARK-NAME</strong></h2>
   </div>
+  <div id="design" role="tablist" aria-multiselectable="true">
 
   <div id="content"></div>
-
+</div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -33,7 +34,9 @@
     crossorigin="anonymous"></script>
   <!-- firebase -->
   <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
-  <script src='app.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.2.1/moment.min.js"></script>
+
+  <script src='assets/javascript/app.js'></script>
 
 </body>
 
