@@ -142,25 +142,24 @@ $('document').ready(function () {
       var url = element.url;
       // content has a header of cat(category) and individual divs with the content
       var card = `
-    <div class="card">
-    <div class="card-header" role="tab" id="section1HeaderId">
-            <h5 class="mb-0">
-            <a data-toggle="collapse" data-parent="#design" href="#card${globalCounter}" aria-expanded="false" aria-controls="card${globalCounter}" class="collapsed">
-            Park Alerts - ${category}
-                </a>
-                </h5>
-                </div>
-                <div id="card${globalCounter}" class="in collapse" role="tabpanel" aria-labelledby="section1HeaderId" style="">
-                <div class="card-body">
-                <div class="alert-title"><h4>${title}</h4></div>
-                <br>
-                <div class="alert-description">${description}</div>
-                <br>
-                <div class="alert-url"><a href='${url}'>Click Here For more info</a></div>
-                </div>
-                </div>
-                </div>
-                `
+      <div class="card">
+      <div class="card-header">
+          <h5 class="mb-0">
+  
+              Park Alerts - ${category}
+          </h5>
+      </div>
+      <div class="card-body">
+          <div class="alert-title">
+              <h4>${title}</h4>
+          </div>
+          <br>
+          <div class="alert-description">${description}</div>
+          <br>
+          <div class="alert-url"><a href='${url}'>Click Here For more info</a></div>
+      </div>
+  </div>
+  `
       $content.prepend(card);
     },
     articles: function (element, cat) {
@@ -171,26 +170,28 @@ $('document').ready(function () {
       var url = element.url;
       var id = element.id;
       var latLong = element.latLong;
-      var card = `<div class="card">
-      <div class="card-header">
-          <h5 class="mb-0">Articles - ${title}</h5>
-      </div>
-      <div class="card-body">
-          <div class="article-listingDescription">article listingDescription: ${listingDescription}</div>
-          <br>
-          <div class="article-listingImage">article listingImage: ${listingImage}</div>
-          <br>
-          <div class="article-relatedParks">article relatedParks: ${relatedParks}</div>
-          <br>
-          <div class="article-title">article title: ${title}</div>
-          <br>
-          <div class="article-url">article url: ${url}</div>
-          <br>
-          <div class="article-id">article id: ${id}</div>
-          <br>
-          <div class="article-latLong">article latLong: ${latLong}</div>
-      </div>
-  </div>`
+      var card = `
+      <div class="card">
+    <div class="card-header">
+        <h5 class="mb-0">Articles - ${title}</h5>
+    </div>
+    <div class="card-body">
+        <div class="article-listingDescription">article listingDescription: ${listingDescription}</div>
+        <br>
+        <div class="article-listingImage">article listingImage: ${listingImage}</div>
+        <br>
+        <div class="article-relatedParks">article relatedParks: ${relatedParks}</div>
+        <br>
+        <div class="article-title">article title: ${title}</div>
+        <br>
+        <div class="article-url">article url: ${url}</div>
+        <br>
+        <div class="article-id">article id: ${id}</div>
+        <br>
+        <div class="article-latLong">article latLong: ${latLong}</div>
+    </div>
+</div>
+      `
       $content.prepend(card);
     },
     campgrounds: function (element, cat) {
@@ -231,47 +232,52 @@ $('document').ready(function () {
       var reservationsUrl = element.reservationsUrl;
       var weatherOverview = element.weatherOverview;
       var card = `
-  <div class="card">
-  <div class="card-header" role="tab" id="section1HeaderId">
-  <h5 class="mb-0">
-  <a data-toggle="collapse" data-parent="#design" href="#card${globalCounter}" aria-expanded="false" aria-controls="card${globalCounter}" class="collapsed">
-        Campgrounds - ${name}
-        </a>
-        </h5>
-        </div>
-    <div id="card${globalCounter}" class="in collapse" role="tabpanel" aria-labelledby="section1HeaderId" style="">
-    <div class="card-body">
-    <div class="campground-accessibility"><strong>Campground accessibility: </strong>${accessibility}</div>
-    <br>
-        <div class="campground-amenities">Campground amenities: ${amenities}</div>
-        <br>
-        <div class="campground-campsites">Campground campsites: ${campsites}</div>
-        <br>
-        <div class="campground-description">Campground description: ${description}</div>
-        <br>
-        <div class="campground-directionsOverview">Campground directionsOverview: ${directionsOverview}</div>
-        <br>
-        <div class="campground-directionsUrl">Campground directionsUrl: ${directionsUrl}</div>
-        <br>
-        <div class="campground-id">Campground id: ${id}</div>
-        <br>
-        <div class="campground-latLong">Campground latLong: ${latLong}</div>
-        <br>
-        <div class="campground-name">Campground name: ${name}</div>
-        <br>    <div class="campground-parkCode">Campground parkCode: ${parkCode}</div>
-        <br>    <div class="campground-regulationsOverview">Campground regulationsOverview: ${regulationsOverview}</div>
-        <br>    <div class="campground-regulationsUrl">Campground regulationsUrl: ${regulationsUrl}</div>
-        <br>    <div class="campground-reservationsDescription">Campground reservationsDescription: ${reservationsDescription}</div>
-        <br>    <div class="campground-reservationsSitesFirstCome">Campground reservationsSitesFirstCome: ${reservationsSitesFirstCome}</div>
-        <br>
-        <div class="campground-reservationsSitesReservable">Campground reservationsSitesReservable: ${reservationsSitesReservable}</div>
-        <br>
-        <div class="campground-reservationsUrl">Campground reservationsUrl: ${reservationsUrl}</div>
-        <br>
-        <div class="campground-weatherOverview">Campground weatherOverview: ${weatherOverview}</div>
-        </div>
-        </div>
-        </div>`
+      <div class="card">
+      <div class="card-header">
+          <h5 class="mb-0">
+              Campgrounds - ${name}
+          </h5>
+      </div>
+      <div class="card-body">
+          <div class="campground-accessibility"><strong>Campground accessibility: </strong>${accessibility}</div>
+          <br>
+          <div class="campground-amenities">Campground amenities: ${amenities}</div>
+          <br>
+          <div class="campground-campsites">Campground campsites: ${campsites}</div>
+          <br>
+          <div class="campground-description">Campground description: ${description}</div>
+          <br>
+          <div class="campground-directionsOverview">Campground directionsOverview: ${directionsOverview}</div>
+          <br>
+          <div class="campground-directionsUrl">Campground directionsUrl: ${directionsUrl}</div>
+          <br>
+          <div class="campground-id">Campground id: ${id}</div>
+          <br>
+          <div class="campground-latLong">Campground latLong: ${latLong}</div>
+          <br>
+          <div class="campground-name">Campground name: ${name}</div>
+          <br>
+          <div class="campground-parkCode">Campground parkCode: ${parkCode}</div>
+          <br>
+          <div class="campground-regulationsOverview">Campground regulationsOverview: ${regulationsOverview}</div>
+          <br>
+          <div class="campground-regulationsUrl">Campground regulationsUrl: ${regulationsUrl}</div>
+          <br>
+          <div class="campground-reservationsDescription">Campground reservationsDescription:
+              ${reservationsDescription}</div>
+          <br>
+          <div class="campground-reservationsSitesFirstCome">Campground reservationsSitesFirstCome:
+              ${reservationsSitesFirstCome}</div>
+          <br>
+          <div class="campground-reservationsSitesReservable">Campground reservationsSitesReservable:
+              ${reservationsSitesReservable}</div>
+          <br>
+          <div class="campground-reservationsUrl">Campground reservationsUrl: ${reservationsUrl}</div>
+          <br>
+          <div class="campground-weatherOverview">Campground weatherOverview: ${weatherOverview}</div>
+      </div>
+  </div>
+     `
       $content.prepend(card);
     },
     parks: function (element, cat) {
@@ -291,38 +297,35 @@ $('document').ready(function () {
         window.location.assign(directionsUrl);
       });
 
-      var card = `    
-    <div class="card">
-    <div class="card-header" role="tab" id="section1HeaderId">
-        <h5 class="mb-0">
-        <a data-toggle="collapse" data-parent="#design" href="#card${globalCounter}" aria-expanded="false" aria-controls="card${globalCounter}" class="collapsed">
-        Park Information - ${name}
-        </a>
-        </h5>
-        </div>
-        <div id="card${globalCounter}" class="in collapse" role="tabpanel" aria-labelledby="section1HeaderId" style="">
-        <div class="card-body">
+      var card = `
 
-        <div class="park-description">Park description: ${description}</div>
-        <br>
-        <div class="park-directionsInfo">Park directionsInfo: ${directionsInfo}</div>
-        <br>
-    <div class="park-directionsUrl">Park directionsUrl: ${directionsUrl}</div>
-    <br>
-    <div class="park-fullName">Park fullName: ${fullName}</div>
-    <br>
-    <div class="park-latLong">Park latLong: ${latLong}</div>
-    <br>
-    <div class="park-name">Park name: ${name}</div>
-    <br>
-    <div class="park-states">Park states: ${states}</div>
-    <br>
-    <div class="park-url">Park url: ${url}</div>
-    <br>
-    <div class="park-weatherInfo">Park weatherInfo: ${weatherInfo}</div>
-    </div>
-    </div>
-    </div>`
+      <div class="card">
+      <div class="card-header">
+          <h5 class="mb-0">
+              Park Information - ${name}
+          </h5>
+      </div>
+      <div class="card-body">
+          <div class="park-description">Park description: ${description}</div>
+          <br>
+          <div class="park-directionsInfo">Park directionsInfo: ${directionsInfo}</div>
+          <br>
+          <div class="park-directionsUrl">Park directionsUrl: ${directionsUrl}</div>
+          <br>
+          <div class="park-fullName">Park fullName: ${fullName}</div>
+          <br>
+          <div class="park-latLong">Park latLong: ${latLong}</div>
+          <br>
+          <div class="park-name">Park name: ${name}</div>
+          <br>
+          <div class="park-states">Park states: ${states}</div>
+          <br>
+          <div class="park-url">Park url: ${url}</div>
+          <br>
+          <div class="park-weatherInfo">Park weatherInfo: ${weatherInfo}</div>
+      </div>
+  </div>
+  `
       $content.prepend(card);
     },
     events: function (element, cat) {
@@ -338,40 +341,37 @@ $('document').ready(function () {
       var time = element.time;
       var title = element.title;
       var card = `
-    <div class="card">
-    <div class="card-header" role="tab" id="section1HeaderId">
+      <div class="card">
+      <div class="card-header">
           <h5 class="mb-0">
-          <a data-toggle="collapse" data-parent="#design" href="#card${globalCounter}" aria-expanded="false" aria-controls="card${globalCounter}" class="collapsed">
-          Events - ${title}
-            </a>
-            </h5>
+              Events - ${title}
+          </h5>
       </div>
-      <div id="card${globalCounter}" class="in collapse" role="tabpanel" aria-labelledby="section1HeaderId" style="">
       <div class="card-body">
-            <div class="events-abstract">Events abstract: ${abstract}</div>
-            <br>
-            <div class="events-dates">Events dates: ${dates}</div>
-            <br>
-            <div class="events-feeInformation">Events feeInformation: ${feeInformation}</div>
-            <br>
-            <div class="events-id">Events id: ${id}</div>
-            <br>
-            <div class="events-image">Events image: ${image}</div>
-            <br>
-            <div class="events-location">Events location: ${location}</div>
-            <br>
-            <div class="events-parkCode">Events parkCode: ${parkCode}</div>
-            <br>
-            <div class="events-url">Events url: ${url}</div>
-            <br>
-            <div class="events-recurrence">Events recurrence: ${recurrence}</div>
-            <br>
-            <div class="events-time">Events time: ${time}</div>
-            <br>
-            <div class="events-title">Events title: ${title}</div>
-            </div>
-            </div>
-            </div>      `
+          <div class="events-abstract">Events abstract: ${abstract}</div>
+          <br>
+          <div class="events-dates">Events dates: ${dates}</div>
+          <br>
+          <div class="events-feeInformation">Events feeInformation: ${feeInformation}</div>
+          <br>
+          <div class="events-id">Events id: ${id}</div>
+          <br>
+          <div class="events-image">Events image: ${image}</div>
+          <br>
+          <div class="events-location">Events location: ${location}</div>
+          <br>
+          <div class="events-parkCode">Events parkCode: ${parkCode}</div>
+          <br>
+          <div class="events-url">Events url: ${url}</div>
+          <br>
+          <div class="events-recurrence">Events recurrence: ${recurrence}</div>
+          <br>
+          <div class="events-time">Events time: ${time}</div>
+          <br>
+          <div class="events-title">Events title: ${title}</div>
+      </div>
+  </div>
+`
       $content.prepend(card);
     },
     lessonplans: function (element, cat) {
@@ -385,38 +385,52 @@ $('document').ready(function () {
       var parks = element.parks;
       var id = element.id;
       var card = `
-    <div class="card">
-    <div class="card-header" role="tab" id="section1HeaderId">
-    <h5 class="mb-0">
-    <a data-toggle="collapse" data-parent="#design" href="#card${globalCounter}" aria-expanded="false" aria-controls="card${globalCounter}" class="collapsed">
-        Lesson Plans - ${title}
-        </a>
-        </h5>
-    </div>
-    <div id="card${globalCounter}" class="in collapse" role="tabpanel" aria-labelledby="section1HeaderId" style="">
-    <div class="card-body">
-    <div class="lessonplans-commonCore"><p>Lessonplans Common Core: ${commonCore}</p></div>
-    <br>
-    <div class="lessonplans-gradeLevel"><p>Lessonplans Grade Level: ${gradeLevel}</p></div>
-    <br>
-    <div class="lessonplans-questionObjective"><p>Lessonplans Question Objective: ${questionObjective}</p></div>
-    <br>
-        <div class="lessonplans-subject"><p>lessonplans-subject: ${subject}</p></div>
-        <br>
-        <div class="lessonplans-title"><p>lessonplans-title: ${title}</p></div>
-        <br>
-        <div class="lessonplans-duration"><p>lessonplans-duration: ${duration}</p></div>
-        <br>
-        <div class="lessonplans-url"><p>lessonplans-url: ${url}</p></div>
-        <br>
-        <div class="lessonplans-parks"><p>lessonplans-parks: ${parks}</p></div>
-        <br>
-        <div class="lessonplans-ID"><p>lessonplans-ID: ${id}</p></div>
-        <br>
-        </div>
-    </div>
-    </div>
-    `
+      <div class="card">
+      <div class="card-header">
+          <h5 class="mb-0">
+              Lesson Plans - ${title}
+          </h5>
+      </div>
+      <div class="card-body">
+          <div class="lessonplans-commonCore">
+              Lessonplans Common Core: ${commonCore}
+          </div>
+          <br>
+          <div class="lessonplans-gradeLevel">
+              Lessonplans Grade Level: ${gradeLevel}
+          </div>
+          <br>
+          <div class="lessonplans-questionObjective">
+              Lessonplans Question Objective: ${questionObjective}
+          </div>
+          <br>
+          <div class="lessonplans-subject">
+              lessonplans-subject: ${subject}
+          </div>
+          <br>
+          <div class="lessonplans-title">
+              lessonplans-title: ${title}
+          </div>
+          <br>
+          <div class="lessonplans-duration">
+              lessonplans-duration: ${duration}
+          </div>
+          <br>
+          <div class="lessonplans-url">
+              lessonplans-url: ${url}
+          </div>
+          <br>
+          <div class="lessonplans-parks">
+              lessonplans-parks: ${parks}
+          </div>
+          <br>
+          <div class="lessonplans-ID">
+              lessonplans-ID: ${id}
+          </div>
+          <br>
+      </div>
+  </div>
+      `
       $content.prepend(card);
 
     },
@@ -431,34 +445,44 @@ $('document').ready(function () {
       var title = element.title;
       var url = element.url;
       card = `
-    <div class="card">
-    <div class="card-header" role="tab" id="section1HeaderId">
-        <h5 class="mb-0">
-        <a data-toggle="collapse" data-parent="#design" href="#card${globalCounter}" aria-expanded="false" aria-controls="card${globalCounter}" class="collapsed">
-        News Relases - ${title}
-        </a>
-        </h5>
-        </div>
-        <div id="card${globalCounter}" class="in collapse" role="tabpanel" aria-labelledby="section1HeaderId" style="">
-        <div class="card-body">
-        <div class="places-abstract"><p>Places Abstract: ${abstract}</p></div>
-        <br>
-        <div class="places-id"><p>Places Listing Image Title: ${id}</p></div>
-        <br>
-        <div class="places-parkCode"><p>Places Listing Image Caption: ${parkCode}</p></div>
-        <br>
-        <div class="places-releaseDate"><p>Places Related Parks: ${releaseDate}</p></div>
-        <br>
-        <div class="places-title"><p>Places Title: ${title}</p></div>
-        <br>
-        <div class="places-imageURL"><p>Places imageURL: ${imageURL}</p></div>
-        <br>
-        <div class="places-url"><p>Places URL: ${url}</p></div>
-        <br>
-        </div>
-        </div>
-        </div>
-        `
+      <div class="card">
+      <div class="card-header">
+          <h5 class="mb-0">
+              News Relases - ${title}
+          </h5>
+      </div>
+      <div class="card-body">
+          <div class="places-abstract">
+              Places Abstract: ${abstract}
+          </div>
+          <br>
+          <div class="places-id">
+              Places Listing Image Title: ${id}
+          </div>
+          <br>
+          <div class="places-parkCode">
+              Places Listing Image Caption: ${parkCode}
+          </div>
+          <br>
+          <div class="places-releaseDate">
+              Places Related Parks: ${releaseDate}
+          </div>
+          <br>
+          <div class="places-title">
+              Places Title: ${title}
+          </div>
+          <br>
+          <div class="places-imageURL">
+              Places imageURL: ${imageURL}
+          </div>
+          <br>
+          <div class="places-url">
+              Places URL: ${url}
+          </div>
+          <br>
+      </div>
+  </div>
+      `
       $content.prepend(card);
     },
     people: function (element, cat) {
@@ -474,34 +498,30 @@ $('document').ready(function () {
       var title = element.title;
       var url = element.url;
       var card = `
-    <div class="card">
-      <div class="card-header" role="tab" id="section1HeaderId">
-      <h5 class="mb-0">
-      <a data-toggle="collapse" data-parent="#design" href="#card${globalCounter}" aria-expanded="false" aria-controls="card${globalCounter}" class="collapsed">
-      People - ${title}
-      </a>
-      </h5>
+      <div class="card">
+      <div class="card-header">
+          <h5 class="mb-0">
+              People - ${title}
+          </h5>
       </div>
-      <div id="card${globalCounter}" class="in collapse" role="tabpanel" aria-labelledby="section1HeaderId" style="">
       <div class="card-body">
-      <div class="people-listingImageCredit">People Listing Image Credit: ${listingImageCredit}</div>
-      <br>
-      <div class="people-listingImageAltText">People Listing Image Alt Text: ${listingImageAltText}</div>
-      <br>
-      <div class="people-listingImageTitle">People Listing Image Title: ${listingImageTitle}</div>
-      <br>
-      <div class="people-listingImageCaption">People Listing Image Caption: ${listingImageCaption}</div>
-      <br>
-      <div class="people-listingImageUrl">People Listing Image URL: ${listingImageUrl}</div>
-      <br>
-      <div class="people-listingImageUrl">People Related Parks: ${relatedParks}</div>
-      <br>
-      <div class="people-URL">People URL: ${url}</div>
-      <br>
+          <div class="people-listingImageCredit">People Listing Image Credit: ${listingImageCredit}</div>
+          <br>
+          <div class="people-listingImageAltText">People Listing Image Alt Text: ${listingImageAltText}</div>
+          <br>
+          <div class="people-listingImageTitle">People Listing Image Title: ${listingImageTitle}</div>
+          <br>
+          <div class="people-listingImageCaption">People Listing Image Caption: ${listingImageCaption}</div>
+          <br>
+          <div class="people-listingImageUrl">People Listing Image URL: ${listingImageUrl}</div>
+          <br>
+          <div class="people-listingImageUrl">People Related Parks: ${relatedParks}</div>
+          <br>
+          <div class="people-URL">People URL: ${url}</div>
+          <br>
       </div>
-      </div>
-      </div>
-         `
+  </div>
+      `
       $content.prepend(card);
     },
     places: function (element, cat) {
@@ -515,38 +535,52 @@ $('document').ready(function () {
       var title = element.title;
       var url = element.url;
       card = `
-    <div class="card">
-    <div class="card-header" role="tab" id="section1HeaderId">
-    <h5 class="mb-0">
-    <a data-toggle="collapse" data-parent="#design" href="#card${globalCounter}" aria-expanded="false" aria-controls="card${globalCounter}" class="collapsed">
-    Places - ${title}
-    </a>
-    </h5>
-    </div>
-    <div id="card${globalCounter}" class="in collapse" role="tabpanel" aria-labelledby="section1HeaderId" style="">
-    <div class="card-body">
-    <div class="places-listingDescription"><p>Places Listing Description: ${listingDescription}</p></div>
-    <br>
-        <div class="places-listingImageCredit"><p>Places Listing Image Credit: ${listingImageCredit}</p></div>
-        <br>
-        <div class="places-listingImageAltText"><p>Places Listing Description: ${listingImageAltText}</p></div>
-        <br>
-        <div class="places-listingImageTitle"><p>Places Listing Image Title: ${listingImageTitle}</p></div>
-        <br>
-        <div class="places-listingImageCaption"><p>Places Listing Image Caption: ${listingImageCaption}</p></div>
-        <br>
-        <div class="places-listingImageURL"><p>Places Listing Image URL: ${listingImageUrl}</p></div>
-        <br>
-        <div class="places-relatedParks"><p>Places Related Parks: ${relatedParks}</p></div>
-        <br>
-        <div class="places-title"><p>Places Title: ${title}</p></div>
-        <br>
-        <div class="places-url"><p>Places URL: ${url}</p></div>
-        <br>
-        </div>
-        </div>
-        </div>
-        `
+      <div class="card">
+      <div class="card-header">
+          <h5 class="mb-0">
+              Places - ${title}
+          </h5>
+      </div>
+      <div class="card-body">
+          <div class="places-listingDescription">
+              <p>Places Listing Description: ${listingDescription}</p>
+          </div>
+          <br>
+          <div class="places-listingImageCredit">
+              <p>Places Listing Image Credit: ${listingImageCredit}</p>
+          </div>
+          <br>
+          <div class="places-listingImageAltText">
+              <p>Places Listing Description: ${listingImageAltText}</p>
+          </div>
+          <br>
+          <div class="places-listingImageTitle">
+              <p>Places Listing Image Title: ${listingImageTitle}</p>
+          </div>
+          <br>
+          <div class="places-listingImageCaption">
+              <p>Places Listing Image Caption: ${listingImageCaption}</p>
+          </div>
+          <br>
+          <div class="places-listingImageURL">
+              <p>Places Listing Image URL: ${listingImageUrl}</p>
+          </div>
+          <br>
+          <div class="places-relatedParks">
+              <p>Places Related Parks: ${relatedParks}</p>
+          </div>
+          <br>
+          <div class="places-title">
+              <p>Places Title: ${title}</p>
+          </div>
+          <br>
+          <div class="places-url">
+              <p>Places URL: ${url}</p>
+          </div>
+          <br>
+      </div>
+  </div>
+      `
       $content.prepend(card);
     },
     visitorcenters: function (element, cat) {
@@ -561,40 +595,56 @@ $('document').ready(function () {
       var url = element.url;
       var name = element.name;
       var card = `
-    <div class="card">
-    <div class="card-header" role="tab" id="section1HeaderId">
-        <h5 class="mb-0">
-        <a data-toggle="collapse" data-parent="#design" href="#card${globalCounter}" aria-expanded="false" aria-controls="card${globalCounter}" class="collapsed">
-        Visitors Center - ${name}
-        </a>
-        </h5>
-        </div>
-    <div id="card${globalCounter}" class="in collapse" role="tabpanel" aria-labelledby="section1HeaderId" style="">
-    <div class="card-body">
-    <div class="visitorCenters-phoneNumbers"><p>Visitor Centers Phone Number: ${contactsPhoneNumbers}</p></div>
-    <br>
-    <div class="visitorCenters-emails"><p>Visitor Centers Email Address: ${contactsEmailAddresses}</p></div>
-    <br>
-    <div class="visitorCenters-latLong"><p>Visitor Centers LatLong: ${latLong}</p></div>
-    <br>
-    <div class="visitorCenters-description"><p>Visitor Centers description: ${description}</p></div>
-    <br>
-    <div class="visitorCenters-parkCode"><p>Visitor Centers Park Code: ${parkCode}</p></div>
-    <br>
-    <div class="visitorCenters-ID"><p>Visitor Centers ID: ${id}</p></div>
-    <br>    
-        <div class="visitorCenters-directionsInfo"><p>Visitor Centers Directions Info: ${directionsInfo}</p></div>
-        <br>
-        <div class="visitorCenters-directionsURL"><p>Visitor Centers Directions URL: ${directionsUrl}</p></div>
-        <br>
-        <div class="visitorCenters-URL"><p>Visitor Centers Url: ${url}</p></div>
-        <br>
-        <div class="visitorCenters-name"><p>Visitor Centers name: ${name}</p></div>
-        <br>
-        </div>
-        </div>
-        </div>
-        `;
+      <div class="card">
+      <div class="card-header">
+          <h5 class="mb-0">
+              Visitors Center - ${name}
+          </h5>
+      </div>
+      <div class="card-body">
+          <div class="visitorCenters-phoneNumbers">
+              <p>Visitor Centers Phone Number: ${contactsPhoneNumbers}</p>
+          </div>
+          <br>
+          <div class="visitorCenters-emails">
+              <p>Visitor Centers Email Address: ${contactsEmailAddresses}</p>
+          </div>
+          <br>
+          <div class="visitorCenters-latLong">
+              <p>Visitor Centers LatLong: ${latLong}</p>
+          </div>
+          <br>
+          <div class="visitorCenters-description">
+              <p>Visitor Centers description: ${description}</p>
+          </div>
+          <br>
+          <div class="visitorCenters-parkCode">
+              <p>Visitor Centers Park Code: ${parkCode}</p>
+          </div>
+          <br>
+          <div class="visitorCenters-ID">
+              <p>Visitor Centers ID: ${id}</p>
+          </div>
+          <br>
+          <div class="visitorCenters-directionsInfo">
+              <p>Visitor Centers Directions Info: ${directionsInfo}</p>
+          </div>
+          <br>
+          <div class="visitorCenters-directionsURL">
+              <p>Visitor Centers Directions URL: ${directionsUrl}</p>
+          </div>
+          <br>
+          <div class="visitorCenters-URL">
+              <p>Visitor Centers Url: ${url}</p>
+          </div>
+          <br>
+          <div class="visitorCenters-name">
+              <p>Visitor Centers name: ${name}</p>
+          </div>
+          <br>
+      </div>
+  </div>
+      `;
       $content.prepend(card);
     }
   }
@@ -619,7 +669,6 @@ $('document').ready(function () {
   //   getData(category);
   //   console.log(globalCounter + 'category');
   // });
-
 
 
   // This function returns data about the category passed in
@@ -715,7 +764,7 @@ $('document').ready(function () {
     globalCounter++;
 
     // call getData function to get respective data
-    getWeatherData(category);
+    // getWeatherData(category);
   });
 
 
