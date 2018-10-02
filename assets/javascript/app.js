@@ -26,6 +26,10 @@ $('document').ready(function () {
     $content.empty();
     getData('parks');
   });
+  $(document).on("click", '#park-alerts', function () {
+    $content.empty();
+    getData('alerts');
+  });
   $(document).on("click", '#park-articles', function () {
     $content.empty();
     getData('articles');
