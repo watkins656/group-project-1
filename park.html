@@ -1,21 +1,33 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <title id="park-title">Park-Name - National Parks Travel Guide</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
-        crossorigin="anonymous">
-    <!-- Link to external CSS files -->
-    <link rel="stylesheet" href="assets/css/style.css">
+  <title id="park-title">Park-Name - National Parks Travel Guide</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+    crossorigin="anonymous">
+  <!-- Link to external CSS files -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body id='park-body' background="assets/images/park-name.jpg">
+
+<body class="pb-5" id='park-body' background="assets/images/park-name.jpg">
   <div class="container">
-    <a href="#"><h2 class="text-center" id="park-header"><strong>PARK-NAME</strong></h2></a>
+    <a href="#">
+      <h2 class="text-center" id="park-header"><strong>PARK-NAME</strong></h2>
+    </a>
   </div>
-  <div id="content"></div>
+  <div class="container  mb-5">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div id="content"></div>
+      </div>
+
+    </div>
+  </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -38,50 +50,44 @@
     <div class="dropup-content" id="gen-info">
       <a href="#" id="park-description">PARK DESCRIPTION</a>
       <a href="#" id="park-articles">PARK ARTICLES</a>
-      <a href="#" id="park-directions">PARK DIRECTIONS</a>
       <a href="#" id="park-website">OFFICIAL PARK WEBSITE</a>
-      <a href="#" id="park-longitude">PARK LONGITUDE</a>
+      <a href="#" id="park-longitude">PARK GPS LOCATION</a>
     </div>
   </div>
   <div class="dropup">
-    <button class="dropbtn">ACTIVITIES</button>
+    <button class="dropbtn">PARK ALERTS</button>
     <div class="dropup-content" id="activities">
-      <a href="#" id="park-Link#">Link 1</a>
-      <a href="#" id="park-Link#">Link 2</a>
-      <a href="#" id="park-Link#">Link 3</a>
+      <a href="#" id="park-alerts">ALERTS</a>
+      <!-- <a href="#" id="park-Link#">Link 2</a>
+      <a href="#" id="park-Link#">Link 3</a> -->
     </div>
   </div>
   <div class="dropup">
     <button class="dropbtn">MAPS & DIRECTIONS</button>
     <div class="dropup-content" id="maps">
-      <a href="#" id="park-Link#">Link 1</a>
-      <a href="#" id="park-Link#">Link 2</a>
-      <a href="#" id="park-Link#">Link 3</a>
+      <a href="#" id="park-directions">PARK DIRECTIONS</a>
+      <a href="#" id="park-map#">MAP</a>
     </div>
   </div>
   <div class="dropup">
-    <button class="dropbtn">ACCESSIBILITY</button>
+    <button class="dropbtn">VISITORS CENTERS</button>
     <div class="dropup-content" id="accessibility">
-      <a href="#" id="park-Link#">Link 1</a>
-      <a href="#" id="park-Link#">Link 2</a>
-      <a href="#" id="park-Link#">Link 3</a>
-    </div>
+      <a href="#" id="park-visitors">VISITORS CENTERS</a>
+      </div>
   </div>
   <div class="dropup">
-    <button class="dropbtn">WEATHER & TRAFFIC ALERTS</button>
+    <button class="dropbtn">WEATHER</button>
     <div class="dropup-content" id="weather">
       <a href="#" id="current-weather">CURRENT WEATHER</a>
       <a href="#" id="5-day-forecast">5 DAY FORECAST</a>
     </div>
   </div>
   <div class="dropup">
-    <button class="dropbtn">PERMITS</button>
-    <div class="dropup-content" id="permits">
-      <a href="#" id="park-Link#">Link 1</a>
-      <a href="#" id="park-Link#">Link 2</a>
-      <a href="#" id="park-Link#">Link 3</a>
+    <button class="dropbtn">EVENTS</button>
+    <div class="dropup-content" id="events">
+      <a href="#" id="park-Link#">EVENTS</a>
     </div>
   </div>
 </footer>
-</html>
 
+</html>
