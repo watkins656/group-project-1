@@ -4,9 +4,12 @@
 //Buttons share the same class but unique data-category
 
 $('document').ready(function () {
-
-
+    
+    
     var $content = $('#content')
+    
+    var lat = 0;
+    var lon = 0;
 
     $(document).on("click", '#5-day-forecast', function () {
         getWeatherData('forecast');
@@ -65,7 +68,7 @@ $('document').ready(function () {
         'Great Sand Dunes National Park': 'great-sand-dunes.html',
         'Great Smoky Mountains National Park': 'great-smoky-mountains.html',
         'Guadalupe Mountains National Park': 'guadalupe-mountains.html',
-        'Haleakala National Park': 'haleakala.html',
+        // 'Haleakalᾱ National Park': 'haleakala.html',
         'Hawaii Volcanoes National Park': 'hawaii-volcanoes.html',
         'Hot Springs National Park': 'hot-springs.html',
         'Isle Royale National Park': 'isle-royale.html',
@@ -92,7 +95,7 @@ $('document').ready(function () {
         'Virgin Islands National Park': 'virgin-islands.html',
         'Voyageurs National Park': 'voyageurs.html',
         'Wind Cave National Park': 'wind-cave.html',
-        'Wrangell-St. Elias National Park': 'wrangell-st-elias.html',
+        'Wrangell - St Elias National Park & Preserve': 'wrangell-st-elias.html',
         'Yellowstone National Park': 'yellowstone.html',
         'Yosemite National Park': 'yosemite.html',
         'Zion National Park': 'zion.html'
@@ -259,8 +262,8 @@ $('document').ready(function () {
                 window.location.assign(directionsUrl);
             });
             var latLongSplit = latLong.split(', long:');
-            var lat = latLongSplit[0].substring(4,latLongSplit[0].length);
-            var lon = latLongSplit[1];
+            lat = latLongSplit[0].substring(4,latLongSplit[0].length);
+            lon = latLongSplit[1];
 
             // console.log(latLong);
             // var gpsURL = 'https://www.google.com/maps/?q='+lat+','+lon;
@@ -602,15 +605,13 @@ $('document').ready(function () {
             else buildCard(category.toUpperCase(), 'No information available at this time.', '');
         });
     }
-getData('parks', true);
+    getData('parks', true);
     //===============================================================
     //WEATHER
     //===============================================================
 
     var currentWeather = '';
     var openWeatherKey = '22de199405e9bc855be8a60cd5dbae04';
-    var lat = 0;
-    var lon = 0;
     // API categories
     var openWeatherCategories = [
         'weather',
