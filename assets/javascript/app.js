@@ -1,14 +1,8 @@
-// TODO: Figure out what to show the user for each of the following:
-// General Information
-// Activities
-// Maps & Directions
-// Accessibility
-// Weather & Traffic Alerts
-// Permits
+// TODO: Add the following content to the park.html page
+// CAMPGROUNDS
+// TODO: DRY on-click functions by attaching a class and running getWeatherData(data-category). 
+//Buttons share the same class but unique data-category
 
-//1. Title
-//2. .jpg
-//3. Header
 $('document').ready(function () {
 
 
@@ -20,14 +14,14 @@ $('document').ready(function () {
     $(document).on("click", '#current-weather', function () {
         getWeatherData('weather');
     });
+    $(document).on("click", '#park-description', function () {
+        getData('parks');
+    });
     $(document).on("click", '#park-visitors', function () {
         getData('visitorcenters');
     });
     $(document).on("click", '#park-events', function () {
         getData('events');
-    });
-    $(document).on("click", '#park-description', function () {
-        getData('parks');
     });
     $(document).on("click", '#park-alerts', function () {
         getData('alerts');
@@ -146,26 +140,9 @@ $('document').ready(function () {
             var parkCode = element.parkCode;
             var url = element.url;
             // content has a header of cat(category) and individual divs with the content
-            var card = `
-      <div class="card">
-      <div class="card-header">
-          <h5 class="mb-0">
-  
-              Park Alerts - ${category}
-          </h5>
-      </div>
-      <div class="card-body">
-          <div class="alert-title">
-              <h4>${title}</h4>
-          </div>
-          <br>
-          <div class="alert-description">${description}</div>
-          <br>
-          <div class="alert-url"><a href='${url}'>Click Here For more info</a></div>
-      </div>
-  </div>
-  `
-            $content.html(card);
+            var header = buildCardHeader(title);
+            buildCard(header, description, url);
+
         },
         articles: function (element, cat) {
             var listingDescription = element.listingDescription;
@@ -175,29 +152,8 @@ $('document').ready(function () {
             var url = element.url;
             var id = element.id;
             var latLong = element.latLong;
-            var card = `
-      <div class="card">
-    <div class="card-header">
-        <h5 class="mb-0">Articles - ${title}</h5>
-    </div>
-    <div class="card-body">
-        <div class="article-listingDescription">article listingDescription: ${listingDescription}</div>
-        <br>
-        <div class="article-listingImage">article listingImage: ${listingImage}</div>
-        <br>
-        <div class="article-relatedParks">article relatedParks: ${relatedParks}</div>
-        <br>
-        <div class="article-title">article title: ${title}</div>
-        <br>
-        <div class="article-url">article url: ${url}</div>
-        <br>
-        <div class="article-id">article id: ${id}</div>
-        <br>
-        <div class="article-latLong">article latLong: ${latLong}</div>
-    </div>
-</div>
-      `
-            $content.html(card);
+            var header = buildCardHeader(title);
+            buildCard(header, listingDescription, url)
         },
         campgrounds: function (element, cat) {
             //BINGO
@@ -283,10 +239,11 @@ $('document').ready(function () {
       </div>
   </div>
      `
-            $content.html(card);
+            $content.prepend(card);
         },
         parks: function (element, cat) {
             var description = element.description;
+            console.log("here");
             var directionsInfo = element.directionsInfo;
             var directionsUrl = element.directionsUrl;
             var fullName = element.fullName;
@@ -301,7 +258,6 @@ $('document').ready(function () {
             $(document).on("click", '#park-directions', function () {
                 window.location.assign(directionsUrl);
             });
-            console.log(element);
             var latLongSplit = latLong.split(', long:');
             var lat = latLongSplit[0].substring(4,latLongSplit[0].length);
             var lon = latLongSplit[1];
@@ -313,36 +269,8 @@ $('document').ready(function () {
                 window.location.assign(gpsURL);
             });
 
-            var card = `
-
-      <div class="card">
-      <div class="card-header">
-          <h5 class="mb-0">
-              Park Information - ${name}
-          </h5>
-      </div>
-      <div class="card-body">
-          <div class="park-description">Park description: ${description}</div>
-          <br>
-          <div class="park-directionsInfo">Park directionsInfo: ${directionsInfo}</div>
-          <br>
-          <div class="park-directionsUrl">Park directionsUrl: ${directionsUrl}</div>
-          <br>
-          <div class="park-fullName">Park fullName: ${fullName}</div>
-          <br>
-          <div class="park-latLong">Park latLong: ${latLong}</div>
-          <br>
-          <div class="park-name">Park name: ${name}</div>
-          <br>
-          <div class="park-states">Park states: ${states}</div>
-          <br>
-          <div class="park-url">Park url: ${url}</div>
-          <br>
-          <div class="park-weatherInfo">Park weatherInfo: ${weatherInfo}</div>
-      </div>
-  </div>
-  `
-            $content.html(card);
+            var header = buildCardHeader('PARK DESCRIPTION');
+            buildCard(header, description, url);
         },
         events: function (element, cat) {
             var abstract = element.abstract;
@@ -356,39 +284,8 @@ $('document').ready(function () {
             var recurrence = element.recurrence.frequency;
             var time = element.time;
             var title = element.title;
-            var card = `
-      <div class="card">
-      <div class="card-header">
-          <h5 class="mb-0">
-              Events - ${title}
-          </h5>
-      </div>
-      <div class="card-body">
-          <div class="events-abstract">Events abstract: ${abstract}</div>
-          <br>
-          <div class="events-dates">Events dates: ${dates}</div>
-          <br>
-          <div class="events-feeInformation">Events feeInformation: ${feeInformation}</div>
-          <br>
-          <div class="events-id">Events id: ${id}</div>
-          <br>
-          <div class="events-image">Events image: ${image}</div>
-          <br>
-          <div class="events-location">Events location: ${location}</div>
-          <br>
-          <div class="events-parkCode">Events parkCode: ${parkCode}</div>
-          <br>
-          <div class="events-url">Events url: ${url}</div>
-          <br>
-          <div class="events-recurrence">Events recurrence: ${recurrence}</div>
-          <br>
-          <div class="events-time">Events time: ${time}</div>
-          <br>
-          <div class="events-title">Events title: ${title}</div>
-      </div>
-  </div>
-`
-            $content.html(card);
+            var header = buildCardHeader(title);
+            buildCard(header, abstract, url);
         },
         lessonplans: function (element, cat) {
             var commonCore = element.commonCore.stateStandards;
@@ -447,7 +344,7 @@ $('document').ready(function () {
       </div>
   </div>
       `
-            $content.html(card);
+            $content.prepend(card);
 
         },
         newsreleases: function (element, cat) {
@@ -499,7 +396,7 @@ $('document').ready(function () {
       </div>
   </div>
       `
-            $content.html(card);
+            $content.prepend(card);
         },
         people: function (element, cat) {
             //passing in the element(object returned by the API call) and the cat(category)
@@ -538,7 +435,7 @@ $('document').ready(function () {
       </div>
   </div>
       `
-            $content.html(card);
+            $content.prepend(card);
         },
         places: function (element, cat) {
             var listingDescription = element.listingDescription;
@@ -597,7 +494,7 @@ $('document').ready(function () {
       </div>
   </div>
       `
-            $content.html(card);
+            $content.prepend(card);
         },
         visitorcenters: function (element, cat) {
             var contactsPhoneNumbers = element.contacts.phoneNumbers;
@@ -610,61 +507,54 @@ $('document').ready(function () {
             var directionsUrl = element.directionsUrl;
             var url = element.url;
             var name = element.name;
-            var card = `
-      <div class="card">
-      <div class="card-header">
-          <h5 class="mb-0">
-              Visitors Center - ${name}
-          </h5>
-      </div>
-      <div class="card-body">
-          <div class="visitorCenters-phoneNumbers">
-              <p>Visitor Centers Phone Number: ${contactsPhoneNumbers}</p>
-          </div>
-          <br>
-          <div class="visitorCenters-emails">
-              <p>Visitor Centers Email Address: ${contactsEmailAddresses}</p>
-          </div>
-          <br>
-          <div class="visitorCenters-latLong">
-              <p>Visitor Centers LatLong: ${latLong}</p>
-          </div>
-          <br>
-          <div class="visitorCenters-description">
-              <p>Visitor Centers description: ${description}</p>
-          </div>
-          <br>
-          <div class="visitorCenters-parkCode">
-              <p>Visitor Centers Park Code: ${parkCode}</p>
-          </div>
-          <br>
-          <div class="visitorCenters-ID">
-              <p>Visitor Centers ID: ${id}</p>
-          </div>
-          <br>
-          <div class="visitorCenters-directionsInfo">
-              <p>Visitor Centers Directions Info: ${directionsInfo}</p>
-          </div>
-          <br>
-          <div class="visitorCenters-directionsURL">
-              <p>Visitor Centers Directions URL: ${directionsUrl}</p>
-          </div>
-          <br>
-          <div class="visitorCenters-URL">
-              <p>Visitor Centers Url: ${url}</p>
-          </div>
-          <br>
-          <div class="visitorCenters-name">
-              <p>Visitor Centers name: ${name}</p>
-          </div>
-          <br>
-      </div>
-  </div>
-      `;
-            $content.html(card);
+            var header = buildCardHeader(name);
+            buildCard(header, description, url);
         }
-    }
+    };
 
+    //Build a card functions allow for easier styling changes across all 50 parks pages.
+    function buildCard(header, inner, link) {
+        var $card = $('<div>');
+        $card.addClass('card');
+        var cardHeader = buildCardHeader(header);
+        var cardInner = buildCardInner(inner);
+        var cardLink = buildCardLink(link);
+
+        $card.prepend(cardHeader);
+        $card.append(cardInner);
+        $card.append(cardLink);
+
+        $content.prepend($card)
+    }
+    function buildCardHeader(header) {
+        var headerHtml = `
+      <div class="card-header">
+      <h5 class="mb-0">
+          ${header}
+      </h5>
+        </div>
+      `
+        return headerHtml;
+    };
+    function buildCardInner(inner) {
+        var innerHtml = `
+      <div class="card-body">
+      <div>${inner}</div>
+      </div>
+      `
+        return innerHtml;
+    };
+    function buildCardLink(link) {
+        if (link) {
+            var linkHtml = `
+      <div class="card-body">
+      <div><a href='${link}'>Click here for more info.</a></div>
+      </div>
+      `
+            return linkHtml;
+        }
+    };    
+    
     // Use localStorage to see which park we chose on the home-page
     var park = localStorage.getItem('park-name');
     $('#park-header').text(park)
@@ -674,21 +564,10 @@ $('document').ready(function () {
     var backgroundImageURL = 'assets/images/parks/' + parkURL.substring(0, parkURL.length - 5) + '.jpg';
     $('#park-body').attr('background', backgroundImageURL)
 
-    // Nested 'forEach' calls will call the API for each category, 
-    // then run the respective Method for each set of data returned within each category
-    // NPSCategories.forEach(category => {
-
-    //   // Assure we are keeping <div>'s unique by incrementing globalCounter each iteration
-    //   globalCounter++;
-
-    //   // call getData function to get respective data
-    //   getData(category);
-    //   console.log(globalCounter + 'category');
-    // });
-
-getData('parks','clear');
     // This function returns data about the category passed in
-    function getData(category,flag) {
+    function getData(category, flag) {
+        globalCounter++
+        $content.empty();
         var queryURL = `https://api.nps.gov/api/v1/${category}?`;
 
         // TODO: decide how to handle the limit 
@@ -703,21 +582,26 @@ getData('parks','clear');
             url: queryURL,
             method: "GET"
         }).then(function (response) {
+            //Make sure there is data to display
+            if (response.data.length > 0) {
+                console.log(response.data);
+                // The .ajax call will potentially return multiple items for each call
+                // Run each one through the appropriate Method  
+                response.data.forEach(item => {
+                    globalCounter++;
+                    NPSContentBuilderMethods[category](item, category);
 
-            // The .ajax call will potentially return multiple items for each call
-            // Run each one through the appropriate Method  
-            response.data.forEach(item => {
-                globalCounter++;
-                NPSContentBuilderMethods[category](item, category);
-                if(flag == 'clear'){
-                    $content.empty();
-                }
-            });
+                    if(flag){
+                        console.log('flag');
+                        $content.empty();
+                    }
+                });
+            }
+            //If not, build a card with a message
+            else buildCard(category.toUpperCase(), 'No information available at this time.', '');
         });
     }
-
-
-
+getData('parks', true);
     //===============================================================
     //WEATHER
     //===============================================================
@@ -738,58 +622,50 @@ getData('parks','clear');
         weather: function (element) {
             var temperatureK = (element.main.temp);
             var temperature = Math.floor(temperatureK * 9 / 5 - 459.67);
+            buildCard('Current Temperature', temperature)
             var card = `
-    <div class="card">
-          <h5 class="mb-0">
-          Current temperature
-          </h5>
-      <div class="card-body">
-          <div class='current-temperature'>Current temperature : ${temperature}</div>
-          <br>
+      <div class="card">
+            <h5 class="mb-0">
+            Current temperature
+            </h5>
+        <div class="card-body">
+            <div class='current-temperature'>Current temperature : ${temperature}</div>
+            <br>
+          </div>
         </div>
       </div>
-    </div>
-        `
-            $content.append(card);
+          `
+            // $content.append(card);
         },
         // TODO: Forecast is a copy of weather, change forecast
         forecast: function (element) {
             var forecast = '';
             element.list.forEach(element => {
                 var convertedDate = moment.unix(element.dt);
-                var time = moment(convertedDate).format("MM/DD/YY hh:mm");
+                var time = moment(convertedDate).format("MM/DD/YY hh:mm a");
                 var tempK = element.main.temp;
                 var temp = Math.floor(tempK * 9 / 5 - 459.67);
                 forecast += time + '  -  Temperature: ' + temp + ' Fahrenheit<br>';
             });
+            buildCard('5-Day Forecast:', forecast)
             var card = `
-    <div class="card">
-    <h5 class="mb-0">
-    5-day Forecast
-          </h5>
-      <div class="card-body">
-      <div class='current-weather'>Forecast: ${forecast}</div>
-      <br>
-      </div>
-      </div>
-      `
-            $content.append(card);
+      <div class="card">
+      <h5 class="mb-0">
+      5-day Forecast
+            </h5>
+        <div class="card-body">
+        <div class='current-weather'>Forecast: ${forecast}</div>
+        <br>
+        </div>
+        </div>
+        `
+            // $content.append(card);
         }
     }
 
-    openWeatherCategories.forEach(category => {
-
-        // Assure we are keeping <div>'s unique by incrementing globalCounter each iteration
-        globalCounter++;
-
-        // call getData function to get respective data
-        // getWeatherData(category);
-    });
-
-
-
-
+//Displays API data for the user-chosen category
     function getWeatherData(category) {
+        $content.empty();
         var queryURL = `https://api.openweathermap.org/data/2.5/${category}?`;
 
         // TODO: decide how to handle the limit 
