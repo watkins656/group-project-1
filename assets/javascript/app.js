@@ -83,10 +83,10 @@ $('document').ready(function () {
         'Olympic National Park': 'olympic.html',
         'Petrified Forest National Park': 'petrified-forest.html',
         'Pinnacles National Park': 'pinnacles.html',
-        'Redwood National Park': 'redwood.html',
+        'Redwood National and State Parks': 'redwood.html',
         'Rocky Mountain National Park': 'rocky-mountain.html',
         'Saguaro National Park': 'saguaro.html',
-        'Sequoia National Park': 'sequoia.html',
+        'Sequoia & Kings Canyon National Park': 'sequoia.html',
         'Shenandoah National Park': 'shenandoah.html',
         'Theodore Roosevelt National Park': 'theodore-roosevelt.html',
         'Virgin Islands National Park': 'virgin-islands.html',
@@ -578,13 +578,14 @@ $('document').ready(function () {
             "limit": 0
         };
         queryURL += $.param(queryParams);
+        console.log(queryURL);
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
             //Make sure there is data to display
+            console.log(response);
             if (response.data.length > 0) {
-                console.log(response.data);
                 // The .ajax call will potentially return multiple items for each call
                 // Run each one through the appropriate Method  
                 response.data.forEach(item => {
