@@ -2,6 +2,7 @@
 
 The National Parks Travel Guide is a website that allows users to gather information on a National Park.
 
+![ScreenShot of our page](assets/images/ScreenShot.PNG)
 
 ## Getting Started
 
