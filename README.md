@@ -2,7 +2,7 @@
 
 The National Parks Travel Guide is a website that allows users to gather information on a National Park.
 
-https://github.com/watkins656/group-project-1
+https://watkins656.github.io/group-project-1/
 
 ![ScreenShot of our page](assets/images/ScreenShot.PNG)
 
